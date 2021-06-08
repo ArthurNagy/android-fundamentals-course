@@ -1,71 +1,64 @@
 package ro.scoalainformala.androidfundamentals;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.google.android.material.internal.TextWatcherAdapter;
+
+import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String ANDROID_DEVELOPER_URL = "https://developer.android.com/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_spinner);
+        setContentView(R.layout.activity_main);
 
-        Spinner spinner = findViewById(R.id.spinner);
+        EditText email = findViewById(R.id.email);
+        EditText phone = findViewById(R.id.phone);
+        CheckBox termsAndConditions = findViewById(R.id.t_and_c);
+        Button submit = findViewById(R.id.submit);
+        TextView result = findViewById(R.id.result);
 
-        List<String> dataSource = getSource();
 
-        ArrayAdapter<String> arrayAdapter = getAdapter(dataSource);
-
-        spinner.setAdapter(arrayAdapter);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("MainActivity", "onItemSelected: " + dataSource.get(position));
-            }
+            public void onClick(View v) {
+                String emailValue = email.getText().toString();
+                if (TextUtils.isEmpty(emailValue) || !Patterns.EMAIL_ADDRESS.matcher(emailValue).matches()) {
+                    email.setError(getString(R.string.error_email));
+                    return;
+                } else {
+                    email.setError(null);
+                }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                Log.d("MainActivity", "onNothingSelected");
+                String phoneValue = phone.getText().toString();
+                if (TextUtils.isEmpty(phoneValue)) {
+                    phone.setError(getString(R.string.error_phone));
+                    return;
+                } else {
+                    phone.setError(null);
+                }
+
+                boolean termsAndConditionsValue = termsAndConditions.isChecked();
+                if (!termsAndConditionsValue) {
+                    Toast.makeText(MainActivity.this, getString(R.string.error_t_and_c), Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                result.setText(getString(R.string.result, emailValue, phoneValue, String.valueOf(termsAndConditionsValue)));
             }
         });
-
-//        WebView webView = findViewById(R.id.web_view);
-//
-//        WebSettings webSettings = webView.getSettings();
-//
-//        webSettings.setJavaScriptEnabled(true);
-//
-//        webView.loadUrl(ANDROID_DEVELOPER_URL);
     }
 
-    private List<String> getSource() {
-        List<String> androidVersions = new ArrayList<String>();
-
-        androidVersions.add("Cupcake");
-        androidVersions.add("Oreo");
-        androidVersions.add("Lollipop");
-        androidVersions.add("KitKat");
-        androidVersions.add("Jellybean");
-        androidVersions.add("Marshmallow");
-
-        return androidVersions;
-    }
-
-    private ArrayAdapter<String> getAdapter(List<String> dataSource) {
-        return new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dataSource);
-    }
 }

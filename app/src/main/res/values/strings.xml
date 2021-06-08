@@ -16,6 +16,14 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="spinner_title">Spinner title</string>
+    <string name="login">login</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="terms_and_conditions"><![CDATA[I accept T&C]]></string>
+    <string name="submit">submit</string>
+    <string name="result">Email: %1$s \nPhone: %2$s \nT&amp;C: %3$s</string>
+    <string name="error_email">Fill the input with a valid email address</string>
+    <string name="error_phone">Fill the input with a phone number</string>
+    <string name="error_t_and_c"><![CDATA[Terms & conditions is required]]></string>
 
-    \
 </resources>
