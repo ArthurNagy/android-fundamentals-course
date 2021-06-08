@@ -1,34 +1,38 @@
 package ro.scoalainformala.androidfundamentals;
 
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.material.internal.TextWatcherAdapter;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_spinner);
+        setContentView(R.layout.layout_recycler);
+
+        RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+
+        RecyclerView recyclerView = findViewById(R.id.recycler);
+
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        MoviesDataSource dataSource = new MoviesDataSource();
+
+        MoviesAdapter adapter = new MoviesAdapter(dataSource.getMovies());
+
+        recyclerView.setAdapter(adapter);
 
 //        EditText email = findViewById(R.id.email);
 //        EditText phone = findViewById(R.id.phone);
@@ -66,42 +70,42 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        Spinner spinner = findViewById(R.id.spinner);
-
-        List<String> dataSource = getSource();
-
-        ArrayAdapter<String> arrayAdapter = getAdapter(dataSource);
-
-        spinner.setAdapter(arrayAdapter);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("MainActivity", "onItemSelected: " + dataSource.get(position));
-                Toast.makeText(MainActivity.this, getString(R.string.spinner_selected, dataSource.get(position)), Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                Log.d("MainActivity", "onNothingSelected");
-            }
-        });
+//        Spinner spinner = findViewById(R.id.spinner);
+//
+//        List<String> dataSource = getSource();
+//
+//        ArrayAdapter<String> arrayAdapter = getAdapter(dataSource);
+//
+//        spinner.setAdapter(arrayAdapter);
+//
+//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                Log.d("MainActivity", "onItemSelected: " + dataSource.get(position));
+//                Toast.makeText(MainActivity.this, getString(R.string.spinner_selected, dataSource.get(position)), Toast.LENGTH_LONG).show();
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//                Log.d("MainActivity", "onNothingSelected");
+//            }
+//        });
     }
 
-    private List<String> getSource() {
-        List<String> androidVersions = new ArrayList<String>();
-
-        androidVersions.add("Cupcake");
-        androidVersions.add("Donut");
-        androidVersions.add("Eclair");
-        androidVersions.add("KitKat");
-        androidVersions.add("Pie");
-
-        return androidVersions;
-    }
-
-    private ArrayAdapter<String> getAdapter(List<String> dataSource) {
-        return new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dataSource);
-    }
+//    private List<String> getSource() {
+//        List<String> androidVersions = new ArrayList<String>();
+//
+//        androidVersions.add("Cupcake");
+//        androidVersions.add("Donut");
+//        androidVersions.add("Eclair");
+//        androidVersions.add("KitKat");
+//        androidVersions.add("Pie");
+//
+//        return androidVersions;
+//    }
+//
+//    private ArrayAdapter<String> getAdapter(List<String> dataSource) {
+//        return new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dataSource);
+//    }
 
 }
