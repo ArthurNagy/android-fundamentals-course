@@ -15,6 +15,7 @@
     <string name="auto_backup">Auto backup</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="spinner_title">Spinner title</string>
 
-\
+    \
 </resources>
