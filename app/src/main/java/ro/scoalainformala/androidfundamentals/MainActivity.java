@@ -12,19 +12,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_recycler);
+        setContentView(R.layout.activity_main);
 
-        RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-
-        RecyclerView recyclerView = findViewById(R.id.recycler);
-
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-
-        StudentDataSource dataSource = new StudentDataSource();
-
-        StudentsAdapter adapter = new StudentsAdapter(dataSource.getMovies());
-
-        recyclerView.setAdapter(adapter);
+//        RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+//
+//        RecyclerView recyclerView = findViewById(R.id.recycler);
+//
+//        recyclerView.setLayoutManager(linearLayoutManager);
+//        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+//
+//        StudentDataSource dataSource = new StudentDataSource();
+//
+//        StudentsAdapter adapter = new StudentsAdapter(dataSource.getMovies());
+//
+//        recyclerView.setAdapter(adapter);
     }
 }

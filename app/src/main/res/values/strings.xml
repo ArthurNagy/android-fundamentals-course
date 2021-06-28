@@ -31,4 +31,11 @@
     <string name="dial">dial</string>
     <string name="go_to_next">Go to next</string>
     <string name="set_result">set result</string>
+    <string name="content_desc_header">Header image</string>
+    <string name="content_desc_thumbnail">Thumbnail image</string>
+    <string name="happy_holidays">Happy Holidays!</string>
+    <string name="from_arthur">From Arthur</string>
+    <string name="description">Have yourself a merry little Christmas,\nLet your heart be light\nFrom now on, our troubles will be out of sight</string>
+    <string name="let_it_snow">Let it snow</string>
+    <string name="jingle_bells">jingle bells</string>
 </resources>
