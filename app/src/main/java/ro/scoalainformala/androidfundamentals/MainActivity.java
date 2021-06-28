@@ -1,111 +1,84 @@
 package ro.scoalainformala.androidfundamentals;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.Button;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_recycler);
+        setContentView(R.layout.activity_main);
 
-        RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        Button dialButton = findViewById(R.id.dial);
 
-        RecyclerView recyclerView = findViewById(R.id.recycler);
+        dialButton.setOnClickListener(v -> {
+            Uri webpage = Uri.parse("http://www.google.com");
+            Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
 
-        recyclerView.setLayoutManager(linearLayoutManager);
+//            Intent dialIntent = new Intent(Intent.ACTION_VIEW);
+//            dialIntent.setData(Uri.parse());
 
-        MoviesDataSource dataSource = new MoviesDataSource();
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
+        });
 
-        MoviesAdapter adapter = new MoviesAdapter(dataSource.getMovies());
+        if (savedInstanceState.containsKey("Key")) {
+            String savedState = savedInstanceState.getString("Key");
+        }
 
-        recyclerView.setAdapter(adapter);
-
-//        EditText email = findViewById(R.id.email);
-//        EditText phone = findViewById(R.id.phone);
-//        CheckBox termsAndConditions = findViewById(R.id.t_and_c);
-//        Button submit = findViewById(R.id.submit);
-//        TextView result = findViewById(R.id.result);
+//        RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 //
+//        RecyclerView recyclerView = findViewById(R.id.recycler);
 //
-//        submit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String emailValue = email.getText().toString();
-//                if (TextUtils.isEmpty(emailValue) || !Patterns.EMAIL_ADDRESS.matcher(emailValue).matches()) {
-//                    email.setError(getString(R.string.error_email));
-//                    return;
-//                } else {
-//                    email.setError(null);
-//                }
+//        recyclerView.setLayoutManager(linearLayoutManager);
 //
-//                String phoneValue = phone.getText().toString();
-//                if (TextUtils.isEmpty(phoneValue)) {
-//                    phone.setError(getString(R.string.error_phone));
-//                    return;
-//                } else {
-//                    phone.setError(null);
-//                }
+//        MoviesDataSource dataSource = new MoviesDataSource();
 //
-//                boolean termsAndConditionsValue = termsAndConditions.isChecked();
-//                if (!termsAndConditionsValue) {
-//                    Toast.makeText(MainActivity.this, getString(R.string.error_t_and_c), Toast.LENGTH_LONG).show();
-//                    return;
-//                }
+//        MoviesAdapter adapter = new MoviesAdapter(dataSource.getMovies());
 //
-//                result.setText(getString(R.string.result, emailValue, phoneValue, String.valueOf(termsAndConditionsValue)));
-//            }
-//        });
-
-//        Spinner spinner = findViewById(R.id.spinner);
-//
-//        List<String> dataSource = getSource();
-//
-//        ArrayAdapter<String> arrayAdapter = getAdapter(dataSource);
-//
-//        spinner.setAdapter(arrayAdapter);
-//
-//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                Log.d("MainActivity", "onItemSelected: " + dataSource.get(position));
-//                Toast.makeText(MainActivity.this, getString(R.string.spinner_selected, dataSource.get(position)), Toast.LENGTH_LONG).show();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//                Log.d("MainActivity", "onNothingSelected");
-//            }
-//        });
+//        recyclerView.setAdapter(adapter);
     }
 
-//    private List<String> getSource() {
-//        List<String> androidVersions = new ArrayList<String>();
-//
-//        androidVersions.add("Cupcake");
-//        androidVersions.add("Donut");
-//        androidVersions.add("Eclair");
-//        androidVersions.add("KitKat");
-//        androidVersions.add("Pie");
-//
-//        return androidVersions;
-//    }
-//
-//    private ArrayAdapter<String> getAdapter(List<String> dataSource) {
-//        return new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dataSource);
-//    }
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putString("Key", "Value");
+        super.onSaveInstanceState(outState);
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
 }

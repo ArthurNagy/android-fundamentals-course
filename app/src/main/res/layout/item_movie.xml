@@ -54,4 +54,11 @@
         android:textSize="12sp"
         tools:text="01/01/1994" />
 
+<!--    <ImageView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/ic_star_24"-->
+<!--        tools:tint="@color/orange"-->
+<!--        android:layout_below="@id/release_date"/>-->
+
 </RelativeLayout>
