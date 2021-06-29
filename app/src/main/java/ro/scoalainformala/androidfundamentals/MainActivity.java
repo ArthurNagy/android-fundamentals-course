@@ -1,34 +1,38 @@
 package ro.scoalainformala.androidfundamentals;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity /*implements Listener*/ {
 
-    private ActionBarDrawerToggle drawerToggle;
+//    private ActionBarDrawerToggle drawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_navigation_drawer);
+        setContentView(R.layout.activity_main);
 
-        DrawerLayout drawerLayout = findViewById(R.id.drawer);
-        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
+        TabLayout tabs = findViewById(R.id.tabs);
+        ViewPager pager = findViewById(R.id.pager);
 
-        drawerLayout.addDrawerListener(drawerToggle);
-        drawerToggle.syncState();
+        PagerAdapter adaptor = new PagerAdapter(getSupportFragmentManager());
 
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+        pager.setAdapter(adaptor);
+        tabs.setupWithViewPager(pager);
+
+//        DrawerLayout drawerLayout = findViewById(R.id.drawer);
+//        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
+//
+//        drawerLayout.addDrawerListener(drawerToggle);
+//        drawerToggle.syncState();
+//
+//        if (getSupportActionBar() != null) {
+//            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        }
 
 //        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
@@ -47,11 +51,11 @@ public class MainActivity extends AppCompatActivity /*implements Listener*/ {
 //        helloFragment.passArguments("Name Method", 6);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Log.d("MainActivity", "onOptionsItemSelected: " + item);
-        return drawerToggle.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        Log.d("MainActivity", "onOptionsItemSelected: " + item);
+//        return drawerToggle.onOptionsItemSelected(item);
+//    }
 
     //    @Override
 //    protected void onResume() {
