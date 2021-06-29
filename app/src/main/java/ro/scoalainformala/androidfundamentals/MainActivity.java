@@ -1,15 +1,34 @@
 package ro.scoalainformala.androidfundamentals;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
-public class MainActivity extends AppCompatActivity implements Listener {
+import com.google.android.material.navigation.NavigationView;
+
+public class MainActivity extends AppCompatActivity /*implements Listener*/ {
+
+    private ActionBarDrawerToggle drawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.layout_navigation_drawer);
+
+        DrawerLayout drawerLayout = findViewById(R.id.drawer);
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
+
+        drawerLayout.addDrawerListener(drawerToggle);
+        drawerToggle.syncState();
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
 //        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
@@ -28,7 +47,13 @@ public class MainActivity extends AppCompatActivity implements Listener {
 //        helloFragment.passArguments("Name Method", 6);
     }
 
-//    @Override
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Log.d("MainActivity", "onOptionsItemSelected: " + item);
+        return drawerToggle.onOptionsItemSelected(item);
+    }
+
+    //    @Override
 //    protected void onResume() {
 //        super.onResume();
 //
@@ -39,12 +64,17 @@ public class MainActivity extends AppCompatActivity implements Listener {
 //        }
 //    }
 
-    @Override
-    public void add(int first, int second) {
-        FragmentB fragmentB = (FragmentB) getSupportFragmentManager().findFragmentById(R.id.fragment_b);
-
-        if (fragmentB != null) {
-            fragmentB.addTwoNumbers(first, second);
-        }
-    }
+//    @Override
+//    public void add(int first, int second) {
+//        FragmentB fragmentB = (FragmentB) getSupportFragmentManager().findFragmentById(R.id.fragment_b);
+//
+//        if (fragmentB != null) {
+//            fragmentB.addTwoNumbers(first, second);
+//        }
+//    }
+//
+//    @Override
+//    public void onBackPressed() {
+//        super.onBackPressed();
+//    }
 }
