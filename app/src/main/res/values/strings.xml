@@ -38,4 +38,7 @@
     <string name="description">Have yourself a merry little Christmas,\nLet your heart be light\nFrom now on, our troubles will be out of sight</string>
     <string name="let_it_snow">Let it snow</string>
     <string name="jingle_bells">jingle bells</string>
+    <string name="hello_fragment">Hello Fragment!</string>
+    <string name="button">button</string>
+    <string name="add">Add</string>
 </resources>

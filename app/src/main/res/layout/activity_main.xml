@@ -5,108 +5,26 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="@dimen/first_keyline" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_end"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="@dimen/first_keyline" />
-
-    <ImageView
-        android:id="@+id/header"
+        android:id="@+id/guide_middle"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/content_desc_header"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_header" />
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
 
-    <ImageView
-        android:id="@+id/thumbnail"
-        android:layout_width="72dp"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/content_desc_thumbnail"
-        app:layout_constraintBottom_toBottomOf="@id/header"
-        app:layout_constraintStart_toEndOf="@id/guide_start"
-        app:layout_constraintTop_toBottomOf="@id/header"
-        app:srcCompat="@drawable/img_thumbnail" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_a"
+        android:name="ro.scoalainformala.androidfundamentals.FragmentA"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/guide_middle"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/first_keyline"
-        android:layout_marginTop="@dimen/content_padding"
-        android:layout_marginEnd="@dimen/first_keyline"
-        android:text="@string/happy_holidays"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        app:layout_constraintStart_toEndOf="@id/thumbnail"
-        app:layout_constraintTop_toBottomOf="@id/header" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/title"
-        app:layout_constraintEnd_toStartOf="@id/guide_end"
-        app:layout_constraintTop_toTopOf="@id/title"
-        app:srcCompat="@drawable/ic_star_24"
-        app:tint="@android:color/holo_orange_light" />
-
-    <TextView
-        android:id="@+id/subtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/from_arthur"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintStart_toStartOf="@id/title"
-        app:layout_constraintTop_toBottomOf="@id/title" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/content_barrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="thumbnail, subtitle" />
-
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/first_keyline"
-        android:text="@string/description"
-        app:layout_constraintEnd_toStartOf="@id/guide_end"
-        app:layout_constraintStart_toEndOf="@id/guide_start"
-        app:layout_constraintTop_toBottomOf="@id/content_barrier" />
-
-    <Button
-        android:id="@+id/snow"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/content_padding"
-        android:layout_marginEnd="@dimen/content_padding"
-        android:text="@string/let_it_snow"
-        app:layout_constraintEnd_toStartOf="@id/bells"
-        app:layout_constraintStart_toEndOf="@id/guide_start"
-        app:layout_constraintTop_toBottomOf="@id/description" />
-
-    <Button
-        android:id="@+id/bells"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/content_padding"
-        android:layout_marginTop="@dimen/content_padding"
-        android:text="@string/jingle_bells"
-        app:layout_constraintEnd_toStartOf="@id/guide_end"
-        app:layout_constraintStart_toEndOf="@id/snow"
-        app:layout_constraintTop_toBottomOf="@id/description" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_b"
+        android:name="ro.scoalainformala.androidfundamentals.FragmentB"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guide_middle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

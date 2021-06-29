@@ -3,28 +3,48 @@ package ro.scoalainformala.androidfundamentals;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Listener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+//        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+
+//        HelloFragment helloFragment = new HelloFragment();
+
+//        Bundle bundle = new Bundle();
+//        bundle.putString("nameKey", "Name");
+//        bundle.putInt("courseNrKey", 6);
 //
-//        RecyclerView recyclerView = findViewById(R.id.recycler);
+//        helloFragment.setArguments(bundle);
+
+//        fragmentTransaction.replace(R.id.fragment_container, helloFragment);
 //
-//        recyclerView.setLayoutManager(linearLayoutManager);
-//        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+//        fragmentTransaction.commit();
+
+//        helloFragment.passArguments("Name Method", 6);
+    }
+
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
 //
-//        StudentDataSource dataSource = new StudentDataSource();
+//        HelloFragment helloFragment = (HelloFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container);
 //
-//        StudentsAdapter adapter = new StudentsAdapter(dataSource.getMovies());
-//
-//        recyclerView.setAdapter(adapter);
+//        if (helloFragment != null) {
+//            helloFragment.passArguments("Name Method", 6);
+//        }
+//    }
+
+    @Override
+    public void add(int first, int second) {
+        FragmentB fragmentB = (FragmentB) getSupportFragmentManager().findFragmentById(R.id.fragment_b);
+
+        if (fragmentB != null) {
+            fragmentB.addTwoNumbers(first, second);
+        }
     }
 }
