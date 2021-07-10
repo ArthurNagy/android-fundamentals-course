@@ -48,4 +48,7 @@
     <string name="close">Close</string>
     <string name="fragment_a">Fragment A</string>
     <string name="fragment_b">Fragment B</string>
+    <string name="message_received">Message received</string>
+    <string name="result_received">Result received</string>
+    <string name="send">send</string>
 </resources>
