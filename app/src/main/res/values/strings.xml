@@ -51,4 +51,11 @@
     <string name="message_received">Message received</string>
     <string name="result_received">Result received</string>
     <string name="send">send</string>
+    <string name="open_website">Open website</string>
+    <string name="website_url">Website URL</string>
+    <string name="location">Location</string>
+    <string name="open_location">Open location</string>
+    <string name="text_to_share">Text to share</string>
+    <string name="share_text">Share text</string>
+    <string name="number_to_dial">Number to dial</string>
 </resources>
