@@ -62,4 +62,8 @@
     <string name="about_us">About Us</string>
     <string name="contact">Contact</string>
     <string name="share">Share</string>
+    <string name="tab_sample_title">Tabs sample</string>
+    <string name="movie_name">FIght Club</string>
+    <string name="pet">Maya</string>
+    <string name="food">Chilli con carne</string>
 </resources>
