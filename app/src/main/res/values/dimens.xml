@@ -2,4 +2,5 @@
 <resources>
     <dimen name="content_padding">8dp</dimen>
     <dimen name="first_keyline">16dp</dimen>
+    <dimen name="avatar_size">48dp</dimen>
 </resources>

@@ -58,4 +58,8 @@
     <string name="text_to_share">Text to share</string>
     <string name="share_text">Share text</string>
     <string name="number_to_dial">Number to dial</string>
+    <string name="home">Home</string>
+    <string name="about_us">About Us</string>
+    <string name="contact">Contact</string>
+    <string name="share">Share</string>
 </resources>
