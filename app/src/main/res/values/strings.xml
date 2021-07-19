@@ -66,4 +66,12 @@
     <string name="movie_name">FIght Club</string>
     <string name="pet">Maya</string>
     <string name="food">Chilli con carne</string>
+    <string name="assistant">Assistant</string>
+    <string name="photos">Photos</string>
+    <string name="albums">Albums</string>
+    <string name="no_location_error">No location permission, can\'t retrieve user location</string>
+
+    <string name="release_date">Release date: %1$s</string>
+    <string name="popularity">Popularity: %1$f</string>
+
 </resources>
