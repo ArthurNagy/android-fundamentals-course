@@ -12,16 +12,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidFundamentals">
-<!--        <activity android:name=".MainActivity"-->
-<!--            android:theme="@style/Theme.AndroidFundamentals">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+        <!--        <activity android:name=".MainActivity"-->
+        <!--            android:theme="@style/Theme.AndroidFundamentals">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--            </intent-filter>-->
+        <!--        </activity>-->
 
-        <activity android:name=".retrofitsample.MoviesSampleActivity">
+        <!--        <activity android:name=".retrofitsample.MoviesSampleActivity">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.MAIN" />-->
+
+        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--            </intent-filter>-->
+        <!--        </activity>-->
+
+        <!--        <activity android:name=".pager.PagerSampleActivity">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.MAIN" />-->
+
+        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--            </intent-filter>-->
+        <!--        </activity>-->
+
+        <activity
+            android:name=".storagesample.WordsActivity"
+            android:theme="@style/Theme.AndroidFundamentals.WordsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,13 +47,8 @@
             </intent-filter>
         </activity>
 
-<!--        <activity android:name=".pager.PagerSampleActivity">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+        <activity android:name=".storagesample.NewWordActivity"
+            android:theme="@style/Theme.AndroidFundamentals.WordsActivity"/>
 
     </application>
 

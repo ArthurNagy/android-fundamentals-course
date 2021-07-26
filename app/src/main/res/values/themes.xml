@@ -14,6 +14,14 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!-- Words activity theme. -->
+    <style name="Theme.AndroidFundamentals.WordsActivity" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryDark">@color/purple_700</item>
+        <item name="colorSecondary">@color/teal_200</item>
+    </style>
+
     <style name="ShapeAppearance.AndroidFundamentals.Avatar" parent="ShapeAppearanceOverlay">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">24dp</item>

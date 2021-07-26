@@ -73,5 +73,9 @@
 
     <string name="release_date">Release date: %1$s</string>
     <string name="popularity">Popularity: %1$f</string>
+    <string name="button_save">Save</string>
+    <string name="hint_word">New word</string>
+    <string name="add_word">Add word</string>
+    <string name="empty_word_error">Empty word returned</string>
 
 </resources>
